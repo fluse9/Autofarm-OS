@@ -200,12 +200,12 @@ class Status(object):
             try:
                 # inserts the dictionary into the document
                 # opens connection to Postgres database with all farm unit data
-                host = "terrafarm.cddahydnt6ir.us-east-2.rds.amazonaws.com"
-                port = "5432"
-                username = "username"
-                password = "password"
-                dbname = "terrafarm"
-                tablename = "units.status"
+                host = "${HOST}"
+                port = "${PORT}"
+                username = "${USERNAME}"
+                password = "${PASSWORD}"
+                dbname = "${DB}"
+                tablename = "${TABLE}"
                 Databases.PostgresConnection(host, port, username, password, dbname).insertRow(tablename, tuple(self.values))
 
                 self.values = []
